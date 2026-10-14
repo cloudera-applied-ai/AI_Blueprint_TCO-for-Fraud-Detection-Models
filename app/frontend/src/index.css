@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-fraud-red: #ef4444;
+  --color-fraud-red-dim: #991b1b;
+  --color-fraud-amber: #f59e0b;
+  --color-fraud-amber-dim: #92400e;
+  --color-fraud-green: #10b981;
+  --color-fraud-green-dim: #065f46;
+
+  --color-surface-0: #0a0a0f;
+  --color-surface-1: #12121a;
+  --color-surface-2: #1a1a25;
+  --color-surface-3: #242430;
+  --color-surface-4: #2e2e3a;
+
+  --color-accent: #6366f1;
+  --color-accent-dim: #4338ca;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-surface-1); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #4a4a5a; }
+
+/* Chat message animation */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide-in { animation: fadeSlideIn 0.3s ease-out; }
+
+/* Pulse glow for alerts */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+  50% { box-shadow: 0 0 12px 4px rgba(239, 68, 68, 0.15); }
+}
+.animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-17T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram id="cloudera-deployment" name="Deployment Topology">
+    <mxGraphModel dx="1422" dy="920" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1360" pageHeight="860" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Cloudera Deployment Topology — Repeatable Across Dev / Test / Prod" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontColor=#1F2A44;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="15" width="1320" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="One Control Plane, one SDX, three identical environments — provision once, promote anywhere." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#5D6D7E;" vertex="1" parent="1">
+          <mxGeometry x="20" y="47" width="1320" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- CDP CONTROL PLANE                                             -->
+        <!-- ============================================================ -->
+        <mxCell id="cp-banner" value="CDP CONTROL PLANE   ( SaaS or Private Cloud )" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A148C;strokeColor=#311B92;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="85" width="1280" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#4A148C;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="113" width="1280" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp1" value="&lt;b&gt;Management Console&lt;/b&gt;&#10;Environments · Users · Audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="125" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp2" value="&lt;b&gt;User Mgmt (SSO / SAML)&lt;/b&gt;&#10;MFA · workload identities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="320" y="125" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp3" value="&lt;b&gt;Replication Manager&lt;/b&gt;&#10;Promote data + models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="580" y="125" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp4" value="&lt;b&gt;Cloudera Observability&lt;/b&gt;&#10;Cost · usage · health" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="840" y="125" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp5" value="&lt;b&gt;CDP CLI / Terraform&lt;/b&gt;&#10;Infrastructure-as-Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="125" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- SDX                                                           -->
+        <!-- ============================================================ -->
+        <mxCell id="sdx-banner" value="SHARED DATA EXPERIENCE (SDX)   —   one source of truth for security, governance, and metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00695C;strokeColor=#004D40;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="1280" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="sdx-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#00695C;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="238" width="1280" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="sdx1" value="&lt;b&gt;Apache Atlas&lt;/b&gt;&#10;Lineage + Catalog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00796B;fontColor=#004D40;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sdx2" value="&lt;b&gt;Apache Ranger&lt;/b&gt;&#10;Fine-grained ACLs · Masking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00796B;fontColor=#004D40;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="320" y="250" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sdx3" value="&lt;b&gt;Apache Knox&lt;/b&gt;&#10;Perimeter gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00796B;fontColor=#004D40;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="580" y="250" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sdx4" value="&lt;b&gt;Data Catalog + DAS&lt;/b&gt;&#10;Discovery + audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00796B;fontColor=#004D40;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="840" y="250" width="240" height="56" as="geometry"/>
+        </mxCell>
+        <mxCell id="sdx5" value="&lt;b&gt;HMS / Iceberg Catalog&lt;/b&gt;&#10;Schema authority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#00796B;fontColor=#004D40;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="250" width="200" height="56" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- DEV ENVIRONMENT                                               -->
+        <!-- ============================================================ -->
+        <mxCell id="dev-banner" value="DEV ENVIRONMENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=center;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="420" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-sub" value="Data scientists · experiments · low cost" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#1B5E20;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="420" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="392" width="420" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev1" value="&lt;b&gt;CDF&lt;/b&gt; — small NiFi flow&#10;(synthetic / sample data)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="405" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev2" value="&lt;b&gt;CDE virtual cluster (XS)&lt;/b&gt;&#10;Spark feature pipelines" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="465" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev3" value="&lt;b&gt;CML Workspace&lt;/b&gt;&#10;Notebooks · 1 GPU pool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="525" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev4" value="&lt;b&gt;AI Inference (small)&lt;/b&gt;&#10;Test endpoint + 1 LLM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="585" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev5" value="&lt;b&gt;CML Application&lt;/b&gt;&#10;Dev frontend (preview)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="645" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev6" value="&lt;b&gt;Data Lake (dev bucket)&lt;/b&gt;&#10;Iceberg + Object Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="120" y="713" width="260" height="65" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- TEST ENVIRONMENT                                              -->
+        <!-- ============================================================ -->
+        <mxCell id="test-banner" value="TEST / UAT ENVIRONMENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=center;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="470" y="340" width="420" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="test-sub" value="Integration · perf · model validation" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#BF360C;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="370" width="420" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="test-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="470" y="392" width="420" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="test1" value="&lt;b&gt;CDF&lt;/b&gt; — full ingest topology&#10;(prod-shaped traffic)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="405" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="test2" value="&lt;b&gt;CDE virtual cluster (M)&lt;/b&gt;&#10;Full pipeline runs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="465" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="test3" value="&lt;b&gt;CML Workspace&lt;/b&gt;&#10;Candidate model training" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="525" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="test4" value="&lt;b&gt;AI Inference (medium)&lt;/b&gt;&#10;Shadow + load tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="585" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="test5" value="&lt;b&gt;CML Application&lt;/b&gt;&#10;UAT frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="645" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="test6" value="&lt;b&gt;Data Lake (test bucket)&lt;/b&gt;&#10;Replicated subset of prod" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#FFE0B2;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="713" width="260" height="65" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- PROD ENVIRONMENT                                              -->
+        <!-- ============================================================ -->
+        <mxCell id="prod-banner" value="PRODUCTION ENVIRONMENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=center;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="900" y="340" width="420" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-sub" value="HA · auto-scale · 24×7 SLA" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#0D47A1;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="900" y="370" width="420" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="900" y="392" width="420" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod1" value="&lt;b&gt;CDF&lt;/b&gt; — HA NiFi cluster + Kafka&#10;Live transaction streams" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="405" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod2" value="&lt;b&gt;CDE virtual cluster (L, autoscale)&lt;/b&gt;&#10;Hourly + daily feature jobs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="465" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod3" value="&lt;b&gt;CML Workspace + Jobs&lt;/b&gt;&#10;Scheduled retrain &amp; promote" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="525" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod4" value="&lt;b&gt;AI Inference (HA, multi-GPU)&lt;/b&gt;&#10;Fraud model + LLM endpoints" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="585" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod5" value="&lt;b&gt;CML Application&lt;/b&gt;&#10;Production analyst UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="645" width="380" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod6" value="&lt;b&gt;Data Lake (prod)&lt;/b&gt;&#10;Iceberg + COD + backups" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="980" y="713" width="260" height="65" as="geometry"/>
+        </mxCell>
+
+        <!-- Promotion arrows -->
+        <mxCell id="prom1" value="promote" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=3;endFill=1;fontColor=#263238;fontSize=11;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="560" as="sourcePoint"/>
+            <mxPoint x="470" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prom2" value="promote" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=3;endFill=1;fontColor=#263238;fontSize=11;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="890" y="560" as="sourcePoint"/>
+            <mxPoint x="900" y="560" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#B7791F;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="805" width="1280" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-text" value="&lt;b&gt;Repeatable:&lt;/b&gt; each environment is the same Terraform / CDP CLI definition with different sizing.&#10;Replication Manager promotes Iceberg snapshots, Ranger policies, and CML model artifacts between them." style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#8C6115;" vertex="1" parent="1">
+          <mxGeometry x="40" y="805" width="1280" height="45" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

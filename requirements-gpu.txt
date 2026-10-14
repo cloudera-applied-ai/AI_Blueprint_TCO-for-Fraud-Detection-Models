@@ -1,0 +1,12 @@
+# GPU acceleration for fraud detection pipeline (optional)
+# Requires NVIDIA GPU with CUDA 12.x drivers
+#
+# Install with:
+#   pip install --extra-index-url https://pypi.nvidia.com -r requirements-gpu.txt
+#
+# Or via conda:
+#   conda install -c rapidsai -c conda-forge cudf cuml cupy
+
+cudf-cu12>=24.10
+cuml-cu12>=24.10
+cupy-cuda12x>=13.0

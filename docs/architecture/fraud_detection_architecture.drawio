@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-17T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram id="fraud-arch" name="Fraud Detection Architecture">
+    <mxGraphModel dx="1422" dy="920" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1360" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ==================== TITLE ==================== -->
+        <mxCell id="title" value="Fraud Detection Application — Architecture" style="text;html=1;align=center;verticalAlign=middle;fontSize=22;fontColor=#1F2A44;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="15" width="1280" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="Runtime application (top) + offline data pipeline (bottom). Green badges = NVIDIA GPU / RAPIDS accelerated." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#5D6D7E;" vertex="1" parent="1">
+          <mxGeometry x="40" y="48" width="1280" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== FRONTEND ==================== -->
+        <mxCell id="fe-banner" value="FRONTEND   —   React 19 · TypeScript 5.9 · Tailwind CSS 4 · Vite 7 · Recharts · Lucide" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="1280" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="118" width="1280" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe1" value="&lt;b&gt;Chat Panel&lt;/b&gt;&#10;Agent interface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe2" value="&lt;b&gt;Risk Dashboard&lt;/b&gt;&#10;Recharts viz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="280" y="130" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe3" value="&lt;b&gt;SHAP Explanation&lt;/b&gt;&#10;Per-prediction chart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="130" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe4" value="&lt;b&gt;Transaction Table&lt;/b&gt;&#10;Filter · export" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="720" y="130" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe5" value="&lt;b&gt;Threshold Analysis&lt;/b&gt;&#10;Sweep viz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="940" y="130" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe6" value="&lt;b&gt;Settings Panel&lt;/b&gt;&#10;GPU / LLM toggle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="130" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe7" value="&lt;b&gt;Experiment Lab&lt;/b&gt;&#10;Retrain workflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="195" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe8" value="&lt;b&gt;Alerts Panel&lt;/b&gt;&#10;Pattern detection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="280" y="195" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe9" value="&lt;b&gt;Monitor Panel&lt;/b&gt;&#10;Drift dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="195" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe10" value="&lt;b&gt;Pipeline Panel&lt;/b&gt;&#10;Data pipeline controls" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="720" y="195" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe11" value="&lt;b&gt;Cost Counter&lt;/b&gt;&#10;Token + $ breakdown" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="940" y="195" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe12" value="&lt;b&gt;Date Range&lt;/b&gt;&#10;Dashboard filter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="195" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== BACKEND API ==================== -->
+        <mxCell id="be-banner" value="BACKEND API   —   FastAPI · uvicorn · ORJSONResponse (Rust) · CORS · SSE streaming" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="310" width="1280" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="be-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#37474F;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="338" width="1280" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="be-grp1" value="&lt;b&gt;Chat / Agent&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#263238;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="180" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="be1" value="POST /api/chat&#10;POST /api/chat/stream&#10;GET /api/sessions/{id}/usage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#37474F;fontColor=#263238;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="370" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="be-grp2" value="&lt;b&gt;Transactions&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#263238;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="350" width="180" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="be2" value="POST /api/transactions/query&#10;GET /api/transactions/{id}/score&#10;GET /api/transactions/{id}/explain&#10;GET /api/export/transactions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#37474F;fontColor=#263238;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="320" y="370" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="be-grp3" value="&lt;b&gt;Dashboard / Alerts / Model&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#263238;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="350" width="240" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="be3" value="GET /api/dashboard&#10;GET /api/alerts&#10;GET /api/model/threshold-analysis&#10;GET /api/health" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#37474F;fontColor=#263238;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="600" y="370" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="be-grp4" value="&lt;b&gt;Config / Experiments&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#263238;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="350" width="240" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="be4" value="GET|PUT /api/config/gpu · /llm · /on-prem&#10;POST /api/experiments/run · /promote&#10;GET /api/experiments/status · /list&#10;POST /api/config/pricing/refresh" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#37474F;fontColor=#263238;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="370" width="420" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== ReAct AGENT ==================== -->
+        <mxCell id="ag-banner" value="ReAct AGENT   —   5-round tool-calling loop (OpenAI-compatible  tool_choice: auto)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B7791F;strokeColor=#8C6115;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="490" width="620" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#B7791F;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="518" width="620" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag1" value="&lt;b&gt;query_transactions&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="530" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag2" value="&lt;b&gt;score_transaction&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="530" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag3" value="&lt;b&gt;explain_prediction&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="530" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag4" value="&lt;b&gt;get_risk_dashboard&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="580" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag5" value="&lt;b&gt;detect_alert_patterns&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="580" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag6" value="&lt;b&gt;analyze_threshold&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="580" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag7" value="&lt;b&gt;monitor_drift&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="630" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag8" value="&lt;b&gt;trace_fraud_network&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="260" y="630" width="190" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ag-note" value="Per-turn: pii_mask.mask_for_llm() runs on every tool result&#10;before it is returned to the model. Cost estimated via cost_estimator.py." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#B7791F;fontColor=#8C6115;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="690" width="590" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== MODEL SERVING ==================== -->
+        <mxCell id="ms-banner" value="MODEL SERVING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6A1B9A;strokeColor=#4A148C;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="680" y="490" width="640" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="680" y="518" width="640" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms1" value="&lt;b&gt;XGBoost Booster&lt;/b&gt;&#10;.predict() — fraud scoring&#10;pred_contribs — native SHAP explanations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="530" width="390" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms2" value="&lt;b&gt;Preprocessor (pickle)&lt;/b&gt;&#10;sklearn LabelEncoders + RobustScaler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="610" width="390" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms3" value="&lt;b&gt;CPU-only at serving time (intentional)&lt;/b&gt;&#10;Single-row inference — GPU transfer overhead &gt; compute benefit." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="675" width="390" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- SQLite next to serving -->
+        <mxCell id="db" value="&lt;b&gt;SQLite DB&lt;/b&gt;&#10;&#10;200K transactions&#10;6 indexes · 31 countries&#10;label_corrections table&#10;experiments table" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="540" width="190" height="210" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== LLM PROVIDER ==================== -->
+        <mxCell id="llm-banner" value="LLM PROVIDER   —   configurable at runtime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="795" width="620" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="llm-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="823" width="620" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="llm1" value="&lt;b&gt;Ollama&lt;/b&gt; (local)&#10;llama3.2:latest · 3B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="838" width="280" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="llm2" value="&lt;b&gt;CAII&lt;/b&gt; (Cloudera AI Inference)&#10;meta.llama3.1-8b · GPU-backed via NIM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="360" y="838" width="280" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="llm-note" value="Both reached through the same OpenAI-compatible client — switching provider is a config change." style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#BF360C;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="898" width="580" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== GPU UTILS ==================== -->
+        <mxCell id="gpu-banner" value="gpu_utils.py   —   Central GPU abstraction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#558B2F;strokeColor=#33691E;fontColor=#FFFFFF;fontSize=13;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="680" y="795" width="640" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="gpu-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#558B2F;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="680" y="823" width="640" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="gpu1" value="&lt;b&gt;All pipeline stages import from here.&lt;/b&gt;&#10;Detects CUDA + cuDF / cuML / cuPy; falls back to pandas / numpy on CPU." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#558B2F;fontColor=#33691E;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="838" width="600" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="gpu-note" value="Toggle:   config.yaml → gpu.enabled: auto | true | false       Override:   FRAUD_DETECTION_FORCE_CPU=1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#33691E;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="898" width="600" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== PIPELINE DIVIDER ==================== -->
+        <mxCell id="div" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="965" as="sourcePoint"/>
+            <mxPoint x="1320" y="965" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pl-title" value="OFFLINE DATA PIPELINE   —   run once, re-run on data / feature changes" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#1F2A44;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="980" width="1280" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== PIPELINE STAGES ==================== -->
+        <mxCell id="pl-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#C62828;strokeWidth=1;dashed=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1020" width="1280" height="280" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage 1: Generate -->
+        <mxCell id="st1" value="&lt;b&gt;1.  Generate&lt;/b&gt;&#10;Synthetic Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#B71C1C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1040" width="290" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="st1d" value="Faker + numpy&#10;200K transactions · 2K users · 500 merchants · 31 countries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;fontColor=#B71C1C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1100" width="290" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="st1o" value="data/raw/*.csv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontSize=10;fontStyle=3;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1180" width="290" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage 2: Preprocess -->
+        <mxCell id="st2" value="&lt;b&gt;2.  Preprocess&lt;/b&gt;&#10;Clean · Encode · Scale" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#B71C1C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1040" width="290" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="st2d" value="Label encoding · One-hot (get_dummies)&#10;RobustScaler · Fraud-rate features" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;fontColor=#B71C1C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1100" width="290" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="st2o" value="data/processed/*.parquet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontSize=10;fontStyle=3;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1180" width="290" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="st2g" value="NVIDIA RAPIDS  ·  cuDF  ·  cuML" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#76B900;strokeColor=#4A7A00;fontColor=#FFFFFF;fontSize=11;fontStyle=1;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1215" width="290" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage 3: Features -->
+        <mxCell id="st3" value="&lt;b&gt;3.  Feature Engineering&lt;/b&gt;&#10;Velocity + Z-scores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#B71C1C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1040" width="290" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="st3d" value="Rolling windows (1h / 24h) · Z-scores&#10;Cyclical time (sin / cos) · Cross-border detection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;fontColor=#B71C1C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1100" width="290" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="st3o" value="*.parquet  +  SQLite (transactions / users / merchants)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontSize=10;fontStyle=3;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1180" width="290" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="st3g" value="NVIDIA RAPIDS  ·  cuDF  ·  cuPy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#76B900;strokeColor=#4A7A00;fontColor=#FFFFFF;fontSize=11;fontStyle=1;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1215" width="290" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage 4: Train -->
+        <mxCell id="st4" value="&lt;b&gt;4.  Train XGBoost&lt;/b&gt;&#10;Model + SHAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#B71C1C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1040" width="290" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="st4d" value="QuantileDMatrix (25% memory) · 512 boost rounds&#10;Early stopping · Native pred_contribs SHAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C62828;fontColor=#B71C1C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1100" width="290" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="st4o" value="models/*.json  +  *.pkl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#757575;fontColor=#424242;fontSize=10;fontStyle=3;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1180" width="290" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="st4g" value="NVIDIA GPU  ·  XGBoost CUDA (device: cuda)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#76B900;strokeColor=#4A7A00;fontColor=#FFFFFF;fontSize=11;fontStyle=1;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1215" width="290" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- Pipeline arrows -->
+        <mxCell id="pa1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#C62828;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="1068" as="sourcePoint"/>
+            <mxPoint x="370" y="1068" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pa2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#C62828;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="1068" as="sourcePoint"/>
+            <mxPoint x="680" y="1068" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pa3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#C62828;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="1068" as="sourcePoint"/>
+            <mxPoint x="990" y="1068" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== NVIDIA DETAIL TABLE ==================== -->
+        <mxCell id="nv-title" value="NVIDIA GPU / RAPIDS — Detailed Usage" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#1B5E20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1325" width="1280" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- Table header -->
+        <mxCell id="nv-h1" value="Pipeline Stage" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1360" width="280" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-h2" value="NVIDIA Library" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1360" width="320" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-h3" value="What It Accelerates" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1360" width="680" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 1: preprocess.py -->
+        <mxCell id="nv-r1a" value="&lt;b&gt;preprocess.py&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1394" width="280" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r1b" value="cuDF  ·  cuML&#10;(RAPIDS)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1394" width="320" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r1c" value="CSV reads · DataFrame ops · groupby · merge · get_dummies&#10;LabelEncoder · RobustScaler" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1394" width="680" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 2: feature_engineering.py -->
+        <mxCell id="nv-r2a" value="&lt;b&gt;feature_engineering.py&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1446" width="280" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r2b" value="cuDF  ·  cuPy&#10;(RAPIDS)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1446" width="320" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r2c" value="groupby · merge · z-scores · geographic features&#10;sin / cos cyclical time computation (GPU arrays)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1446" width="680" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 3: train_xgboost.py -->
+        <mxCell id="nv-r3a" value="&lt;b&gt;train_xgboost.py&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1498" width="280" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r3b" value="XGBoost CUDA&#10;(device: cuda)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1498" width="320" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r3c" value="GPU tree boosting via hist method · QuantileDMatrix (25% memory)&#10;Native pred_contribs for SHAP computation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1498" width="680" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 4: model_utils.py -->
+        <mxCell id="nv-r4a" value="&lt;b&gt;model_utils.py  (serving)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1550" width="280" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r4b" value="CPU only  (intentional)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1550" width="320" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r4c" value="Single-row inference — GPU transfer overhead exceeds compute benefit." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1550" width="680" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 5: LLM -->
+        <mxCell id="nv-r5a" value="&lt;b&gt;LLM  (CAII option)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1602" width="280" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r5b" value="Possible  (infra-dependent)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#BF360C;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1602" width="320" height="52" as="geometry"/>
+        </mxCell>
+        <mxCell id="nv-r5c" value="If CAII backend runs on NVIDIA GPUs (e.g. NIM), LLM inference is GPU-backed." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1B5E20;fontColor=#1B5E20;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1602" width="680" height="52" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== MAIN ARROWS ==================== -->
+
+        <!-- Frontend → Backend -->
+        <mxCell id="arr-fe-be" value="HTTP  :3000 → :8000" style="endArrow=block;html=1;rounded=0;strokeColor=#263238;strokeWidth=2;endFill=1;fontColor=#263238;fontSize=11;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="288" as="sourcePoint"/>
+            <mxPoint x="680" y="310" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Backend → Agent -->
+        <mxCell id="arr-be-ag" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="468" as="sourcePoint"/>
+            <mxPoint x="200" y="490" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Backend → Model Serving -->
+        <mxCell id="arr-be-ms" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="468" as="sourcePoint"/>
+            <mxPoint x="900" y="490" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Backend → SQLite -->
+        <mxCell id="arr-be-db" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1200" y="468" as="sourcePoint"/>
+            <mxPoint x="1200" y="540" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Agent → LLM -->
+        <mxCell id="arr-ag-llm" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#E65100;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="768" as="sourcePoint"/>
+            <mxPoint x="350" y="795" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Agent → Model Serving (score/explain) -->
+        <mxCell id="arr-ag-ms" value="score / explain" style="endArrow=block;html=1;rounded=0;strokeColor=#6A1B9A;strokeWidth=2;endFill=1;dashed=1;fontColor=#4A148C;fontSize=10;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="640" as="sourcePoint"/>
+            <mxPoint x="700" y="640" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Model Serving → SQLite (reads features) -->
+        <mxCell id="arr-ms-db" value="reads features" style="endArrow=block;html=1;rounded=0;strokeColor=#2E7D32;strokeWidth=2;endFill=1;dashed=1;fontColor=#1B5E20;fontSize=10;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1090" y="640" as="sourcePoint"/>
+            <mxPoint x="1110" y="640" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- gpu_utils → Pipeline (imported by all stages) -->
+        <mxCell id="arr-gpu-pl" value="imported by all pipeline stages" style="endArrow=block;html=1;rounded=0;strokeColor=#558B2F;strokeWidth=2;endFill=1;dashed=1;fontColor=#33691E;fontSize=10;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="933" as="sourcePoint"/>
+            <mxPoint x="1000" y="1020" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== LEGEND ==================== -->
+        <mxCell id="lg-title" value="LEGEND" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#1F2A44;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1665" width="1280" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg1" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg2" value="Backend API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#37474F;fontColor=#263238;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg3" value="ReAct Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#B7791F;fontColor=#8C6115;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg4" value="Model Serving" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg5" value="Data Store" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="620" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg6" value="LLM Provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg7" value="Data Pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#B71C1C;fontSize=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="1687" width="130" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg8" value="NVIDIA GPU / RAPIDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#76B900;strokeColor=#4A7A00;fontColor=#FFFFFF;fontSize=10;fontStyle=1;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1687" width="180" height="22" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

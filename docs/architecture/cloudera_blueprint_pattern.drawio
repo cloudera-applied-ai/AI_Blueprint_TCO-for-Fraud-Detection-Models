@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-17T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram id="cloudera-blueprint" name="Cloudera Reference Pattern">
+    <mxGraphModel dx="1422" dy="920" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1360" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Cloudera Data Platform — Repeatable AI/ML Deployment Blueprint" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontColor=#1F2A44;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="15" width="1320" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="Every CDP solution flows bottom-to-top. SDX governs every layer. The pattern is reused across use cases." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#5D6D7E;" vertex="1" parent="1">
+          <mxGeometry x="20" y="47" width="1320" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- CONSUMER LAYER (top)                                          -->
+        <!-- ============================================================ -->
+        <mxCell id="con-banner" value="CONSUMERS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#37474F;strokeColor=#263238;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="85" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="con-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#B0BEC5;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="109" width="1200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1" value="Business Apps&#10;(Web / Mobile UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#546E7A;fontColor=#263238;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="122" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2" value="Analyst Dashboards&#10;(BI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#546E7A;fontColor=#263238;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="122" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3" value="LLM Agent / Chat&#10;Interfaces" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#546E7A;fontColor=#263238;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="480" y="122" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c4" value="Real-time Decision&#10;APIs / Webhooks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#546E7A;fontColor=#263238;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="122" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c5" value="Operational Systems&#10;(case mgmt)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#546E7A;fontColor=#263238;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="880" y="122" width="180" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="c6" value="Notifications&#10;(Slack / SMS / Email)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#546E7A;fontColor=#263238;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="122" width="160" height="44" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- SERVE LAYER                                                   -->
+        <!-- ============================================================ -->
+        <mxCell id="srv-banner" value="SERVE  &amp;  APPLICATIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="195" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="srv-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="219" width="1200" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="&lt;b&gt;Cloudera AI Inference&lt;/b&gt;&#10;(NVIDIA NIM)&#10;&lt;i&gt;Model + LLM serving&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="232" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;Cloudera AI (CML)&#10;Applications&lt;/b&gt;&#10;&lt;i&gt;Hosts UI + REST APIs&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="320" y="232" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;Cloudera AI Studio&lt;/b&gt;&#10;(Agentic AI)&#10;&lt;i&gt;Tool-calling agents&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="232" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;Cloudera DataFlow&lt;/b&gt;&#10;(NiFi REST gateway)&#10;&lt;i&gt;Real-time scoring API&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="232" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s5" value="&lt;b&gt;Model&#10;Registry&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontColor=#BF360C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="232" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- TRAIN LAYER                                                   -->
+        <!-- ============================================================ -->
+        <mxCell id="trn-banner" value="TRAIN  &amp;  EXPERIMENT  (MLOps)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="trn-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="344" width="1200" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="&lt;b&gt;Cloudera AI (CML)&#10;Workspaces&lt;/b&gt;&#10;&lt;i&gt;Notebooks · Sessions&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="357" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="&lt;b&gt;CML Jobs&lt;/b&gt;&#10;(scheduled training)&#10;&lt;i&gt;XGBoost · GPU runtimes&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="320" y="357" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="&lt;b&gt;CML Experiments&lt;/b&gt;&#10;(MLflow tracking)&#10;&lt;i&gt;Metrics · Comparisons&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="357" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" value="&lt;b&gt;CML Model Monitoring&lt;/b&gt;&#10;(drift &amp; performance)&#10;&lt;i&gt;Feedback loop&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="357" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t5" value="&lt;b&gt;Feature&#10;Store&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="357" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- PROCESS LAYER                                                 -->
+        <!-- ============================================================ -->
+        <mxCell id="prc-banner" value="PROCESS  &amp;  ENRICH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="445" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="prc-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="469" width="1200" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="&lt;b&gt;Cloudera Data Engineering&lt;/b&gt;&#10;(Apache Spark)&#10;&lt;i&gt;Batch ETL · Features&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="482" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;Cloudera Stream Processing&lt;/b&gt;&#10;(Apache Flink)&#10;&lt;i&gt;Real-time enrichment&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="320" y="482" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="&lt;b&gt;Cloudera Data Warehouse&lt;/b&gt;&#10;(Iceberg + Impala)&#10;&lt;i&gt;Analyst SQL · BI&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="482" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="&lt;b&gt;Cloudera Operational DB&lt;/b&gt;&#10;(HBase / Phoenix)&#10;&lt;i&gt;Low-latency lookups&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="800" y="482" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="&lt;b&gt;GPU Acceleration&lt;/b&gt;&#10;(NVIDIA RAPIDS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#0D47A1;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="482" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- LAND / STORE LAYER                                            -->
+        <!-- ============================================================ -->
+        <mxCell id="lnd-banner" value="LAND  &amp;  STORE  —  Open Data Lakehouse" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B7791F;strokeColor=#8C6115;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="lnd-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#B7791F;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="594" width="1200" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="&lt;b&gt;Apache Iceberg Tables&lt;/b&gt;&#10;&lt;i&gt;Bronze · Silver · Gold&lt;/i&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="90" y="604" width="210" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="&lt;b&gt;Object Storage&lt;/b&gt;&#10;&lt;i&gt;S3 · ADLS · Ozone&lt;/i&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="604" width="210" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" value="&lt;b&gt;Schema Registry&lt;/b&gt;&#10;&lt;i&gt;Avro · Protobuf&lt;/i&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="580" y="604" width="210" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" value="&lt;b&gt;Model Artifacts&lt;/b&gt;&#10;&lt;i&gt;XGBoost · ONNX · GGUF&lt;/i&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#FFFFFF;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="825" y="604" width="210" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="l5" value="&lt;b&gt;Vector DB&#10;(RAG)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#B7791F;fontColor=#8C6115;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="604" width="170" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- INGEST LAYER                                                  -->
+        <!-- ============================================================ -->
+        <mxCell id="ing-banner" value="INGEST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6A1B9A;strokeColor=#4A148C;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=16;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="685" width="1200" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="ing-body" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="60" y="709" width="1200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="i1" value="&lt;b&gt;Cloudera DataFlow (NiFi)&lt;/b&gt;&#10;&lt;i&gt;200+ connectors · CDC&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="80" y="719" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="i2" value="&lt;b&gt;Cloudera Stream Messaging (Kafka)&lt;/b&gt;&#10;&lt;i&gt;Event streaming backbone&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="380" y="719" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="i3" value="&lt;b&gt;Cloudera Replication Manager&lt;/b&gt;&#10;&lt;i&gt;Cross-environment sync&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="680" y="719" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="i4" value="&lt;b&gt;REST / SQL / SFTP&lt;/b&gt;&#10;Push gateways" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#6A1B9A;fontColor=#4A148C;fontSize=11;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="980" y="719" width="260" height="42" as="geometry"/>
+        </mxCell>
+
+        <!-- Flow arrows (bottom to top) between layers -->
+        <mxCell id="arrA" value="" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="685" as="sourcePoint"/>
+            <mxPoint x="660" y="669" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrB" value="" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="570" as="sourcePoint"/>
+            <mxPoint x="660" y="554" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrC" value="" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="445" as="sourcePoint"/>
+            <mxPoint x="660" y="429" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrD" value="" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="320" as="sourcePoint"/>
+            <mxPoint x="660" y="304" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrE" value="" style="endArrow=block;html=1;strokeColor=#263238;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="195" as="sourcePoint"/>
+            <mxPoint x="660" y="179" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SDX governance strip (left) -->
+        <mxCell id="sdx-strip" value="S D X&#10;&#10;Atlas&#10;Ranger&#10;Knox&#10;Data&#10;Catalog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00796B;strokeColor=#004D40;fontColor=#FFFFFF;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="20" y="85" width="36" height="684" as="geometry"/>
+        </mxCell>
+
+        <!-- Control Plane strip (right) -->
+        <mxCell id="cp-strip" value="C D P&#10;&#10;Control&#10;Plane&#10;&#10;Observe&#10;Govern" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A148C;strokeColor=#311B92;fontColor=#FFFFFF;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1264" y="85" width="36" height="684" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Flow direction: bottom → top.  Each colored band is one layer of the blueprint. Services inside a band are interchangeable choices for that layer." style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#5D6D7E;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="782" width="1200" height="25" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

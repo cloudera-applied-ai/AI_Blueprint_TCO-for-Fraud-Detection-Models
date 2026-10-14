@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-03-24T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram id="fraud-simple" name="Fraud Detection - Simplified">
+    <mxGraphModel dx="1422" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1050" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ==================== TITLE ==================== -->
+        <mxCell id="2" value="&lt;b style=&quot;font-size:22px&quot;&gt;Fraud Detection Application&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px;color:#666&quot;&gt;Architecture Overview — NVIDIA GPU Integration&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="250" y="0" width="600" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== FRONTEND ==================== -->
+        <mxCell id="10" value="&lt;b style=&quot;font-size:14px&quot;&gt;React Frontend&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#555&quot;&gt;React 19 | TypeScript | Tailwind CSS | Vite&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;shadow=1;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="60" width="340" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== BACKEND ==================== -->
+        <mxCell id="20" value="&lt;b style=&quot;font-size:14px&quot;&gt;FastAPI Backend&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#555&quot;&gt;REST API | SSE Streaming | ORJSONResponse&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;shadow=1;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="185" width="440" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== AGENT ==================== -->
+        <mxCell id="30" value="&lt;b style=&quot;font-size:14px&quot;&gt;LLM Agent&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#555&quot;&gt;ReAct loop | 11 tools&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;shadow=1;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="325" width="280" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== MODEL SERVING ==================== -->
+        <mxCell id="40" value="&lt;b style=&quot;font-size:14px&quot;&gt;XGBoost Model&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;color:#555&quot;&gt;Scoring | SHAP Explanations&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;shadow=1;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="325" width="280" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== SQLITE ==================== -->
+        <mxCell id="50" value="&lt;b&gt;SQLite&lt;/b&gt;&lt;br&gt;200K transactions" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="325" width="160" height="95" as="geometry"/>
+        </mxCell>
+
+        <!-- NVIDIA NIM Badge -->
+        <mxCell id="55" value="&lt;div style=&quot;text-align:center;line-height:1.35&quot;&gt;&lt;span style=&quot;font-size:11px;letter-spacing:3px;opacity:0.9&quot;&gt;NVIDIA&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:32px;font-weight:bold;letter-spacing:3px&quot;&gt;NIM&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:11px;opacity:0.85&quot;&gt;Inference Microservice&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:10px;opacity:0.7&quot;&gt;Llama 3.1 8B&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#76B900;fontColor=#FFFFFF;strokeColor=#5A8F00;strokeWidth=2;shadow=1;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="475" width="300" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== PIPELINE DIVIDER ==================== -->
+        <mxCell id="60" value="" style="endArrow=none;html=1;strokeColor=#CCCCCC;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="660" as="sourcePoint"/>
+            <mxPoint x="1070" y="660" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="61" value="&lt;b style=&quot;font-size:13px;color:#666&quot;&gt;OFFLINE ML PIPELINE&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="350" y="662" width="400" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== PIPELINE STAGES ==================== -->
+        <mxCell id="70" value="&lt;b&gt;Generate&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;color:#666&quot;&gt;Synthetic data&lt;br&gt;Faker + NumPy&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#CCCCCC;fontSize=11;shadow=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="30" y="700" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="71" value="&lt;b&gt;Preprocess&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;color:#666&quot;&gt;Clean, encode, scale&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#CCCCCC;fontSize=11;shadow=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="700" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="72" value="&lt;b&gt;Feature Engineering&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;color:#666&quot;&gt;Velocity, z-scores, time&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#CCCCCC;fontSize=11;shadow=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="530" y="700" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="73" value="&lt;b&gt;Train XGBoost&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;color:#666&quot;&gt;Model + SHAP&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#CCCCCC;fontSize=11;shadow=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="780" y="700" width="190" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== NVIDIA RAPIDS BADGE ==================== -->
+        <mxCell id="80" value="&lt;div style=&quot;text-align:center;line-height:1.35&quot;&gt;&lt;span style=&quot;font-size:11px;letter-spacing:3px;opacity:0.9&quot;&gt;NVIDIA&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:30px;font-weight:bold;letter-spacing:3px&quot;&gt;RAPIDS&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px;opacity:0.9&quot;&gt;cuDF &amp;nbsp; | &amp;nbsp; cuML &amp;nbsp; | &amp;nbsp; cuPy &amp;nbsp; | &amp;nbsp; XGBoost CUDA&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:9px;opacity:0.7&quot;&gt;GPU-accelerated data processing and model training&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7400FF;fontColor=#FFFFFF;strokeColor=#5A00CC;strokeWidth=2;shadow=1;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="800" width="730" height="115" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== GPU OPTIONAL NOTE ==================== -->
+        <mxCell id="85" value="&lt;span style=&quot;font-size:10px;color:#999&quot;&gt;All GPU acceleration is &lt;b&gt;optional&lt;/b&gt; — full CPU fallback via gpu_utils.py&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="925" width="500" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== MAIN ARROWS ==================== -->
+
+        <!-- Frontend → Backend -->
+        <mxCell id="100" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#666666;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="10" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Backend → Agent -->
+        <mxCell id="101" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#666666;strokeWidth=2;endArrow=block;endFill=1;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="20" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Backend → Model -->
+        <mxCell id="102" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#666666;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="20" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Backend → SQLite -->
+        <mxCell id="103" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#666666;strokeWidth=2;endArrow=block;endFill=1;exitX=0.85;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="20" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent → NIM -->
+        <mxCell id="104" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#76B900;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="30" target="55" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent ··· Model (dashed) -->
+        <mxCell id="105" value="&lt;font style=&quot;font-size:9px;color:#9673a6&quot;&gt;score / explain&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#9673a6;strokeWidth=1;dashed=1;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="30" target="40" parent="1">
+          <mxGeometry x="0.1" y="-10" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Model ··· SQLite (dashed) -->
+        <mxCell id="106" value="&lt;font style=&quot;font-size:9px;color:#82b366&quot;&gt;query&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=1;strokeColor=#82b366;strokeWidth=1;dashed=1;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="40" target="50" parent="1">
+          <mxGeometry x="0.1" y="10" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ==================== PIPELINE ARROWS ==================== -->
+
+        <!-- Generate → Preprocess -->
+        <mxCell id="110" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeColor=#999999;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="70" target="71" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Preprocess → Feature Eng -->
+        <mxCell id="111" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeColor=#999999;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="71" target="72" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Feature Eng → Train -->
+        <mxCell id="112" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeColor=#999999;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="72" target="73" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ==================== RAPIDS → PIPELINE CONNECTORS ==================== -->
+
+        <!-- RAPIDS → Preprocess -->
+        <mxCell id="120" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeColor=#7400FF;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0.15;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="80" target="71" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- RAPIDS → Feature Eng -->
+        <mxCell id="121" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeColor=#7400FF;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="80" target="72" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- RAPIDS → Train -->
+        <mxCell id="122" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;strokeColor=#7400FF;strokeWidth=2;dashed=1;endArrow=block;endFill=1;exitX=0.85;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="80" target="73" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

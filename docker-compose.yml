@@ -1,0 +1,132 @@
+# On-prem stack for the Fraud Detection app — single, self-contained file.
+#
+# Everything is inline: no -f overrides, no profiles, no CLI flags. Deploy it
+# as-is and open http://<host>:8400.
+#
+# As configured this builds the AMD ROCm image and passes the R9700 through.
+# The CPU-only and NVIDIA variants are at the bottom of this file — swap the
+# marked lines to switch. Only XGBoost training uses the GPU: RAPIDS (cuDF/cuML)
+# has no AMD build, so dataframe work stays on the CPU either way.
+#
+# The LLM (Cloudera AI Inferencing, vLLM, or Ollama) is a remote endpoint the
+# app reaches over the network — it is not part of this stack.
+#
+# First start runs the pipeline chain inside the container (synthetic data ->
+# preprocess -> features -> XGBoost training), which takes several minutes. The
+# artifacts land in ./data and ./models and are reused on every later start.
+# Set FRAUD_DETECTION_SKIP_BOOTSTRAP=1 in .env to skip it and start the app bare.
+
+services:
+  app:
+    build:
+      context: .
+      # --- hardware target (see alternatives at the bottom) ---
+      target: runtime-rocm
+      args:
+        # The R9700 is gfx1201. Use gfx942 for Instinct MI300X.
+        AMDGPU_TARGETS: gfx1201
+        # Bump to force a fresh XGBoost HIP build. A failed build still yields a
+        # working (CPU) image, so its layer would otherwise stay cached forever.
+        BUILD_ATTEMPT: 1
+    image: fraud-detection:rocm
+
+    ports:
+      # host 8400 -> the app's UI port inside the container
+      - "8400:8100"
+
+    environment:
+      BACKEND_PORT: 7078
+      FRONTEND_PORT: 8100
+
+      # The config volume starts as a copy of the image's config/, which ships
+      # config.yaml.example but NOT config.yaml (it holds credentials). The
+      # entrypoint seeds config.yaml from the example, so the agent starts on
+      # placeholder LLM settings — point it at a real endpoint by uncommenting
+      # the variables below, or by supplying them from the orchestration layer.
+      # LLM_PROVIDER: vllm
+      # VLLM_ENDPOINT: http://<host>:9292/v1
+      # VLLM_API_KEY: <key>
+      # Llama Guard screens questions and answers; off unless enabled here.
+      # GUARD_ENABLED: 1
+      # GUARD_MODEL: meta-llama/Llama-Guard-3-8B
+
+    # Loaded if a .env sits next to this file; ignored if not.
+    env_file:
+      - path: .env
+        required: false
+
+    volumes:
+      # Named volumes: the generated dataset, trained model, and seeded config
+      # survive rebuilds without depending on paths next to the compose file.
+      - data:/app/data
+      - models:/app/models
+      - config:/app/config
+
+    # --- AMD GPU passthrough (remove these two lines for the CPU variant) ---
+    # The device nodes are the whole requirement. The container runs as root,
+    # which opens /dev/kfd and /dev/dri/renderD128 whatever their group, so no
+    # group_add is needed — and naming a group that does not exist inside the
+    # container fails container creation outright. If a non-root USER is ever
+    # added to the image, grant it the host's numeric render GID instead
+    # (`getent group render | cut -d: -f3`); the container's own render GID is
+    # a different number and will not match.
+    #
+    # AMD's docs also show ipc: host, cap_add: SYS_PTRACE, shm_size and
+    # security_opt. Those are for multi-GPU collectives and rocgdb — none apply
+    # to single-GPU XGBoost, and this host's orchestration layer already sets
+    # seccomp:unconfined (declaring it twice fails validation).
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    # --- end AMD GPU passthrough ---
+
+    healthcheck:
+      # Runs *inside* the container, so it targets the container port (8100),
+      # not the published one. /api/health proves the frontend, the proxy, and
+      # the co-located backend are all alive.
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8100/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      # Generous: the first-run data generation + model training happens before
+      # the server binds, and failures during this window are not counted.
+      start_period: 900s
+
+    restart: unless-stopped
+
+# Lowercase `volumes:` — a capitalised key is not recognised, which leaves the
+# named volumes above undefined.
+volumes:
+  data:
+  models:
+  config:
+
+# ---------------------------------------------------------------------------
+# Switching hardware target
+# ---------------------------------------------------------------------------
+#
+# CPU only — smallest image, builds fastest, starts on any host:
+#   1. target: runtime-rocm          ->  target: runtime
+#   2. delete the `args:` block under build
+#   3. image: fraud-detection:rocm   ->  image: fraud-detection:latest
+#   4. delete the AMD GPU passthrough block
+#
+# NVIDIA + RAPIDS — needs a CUDA 12.x driver and the NVIDIA Container Toolkit:
+#   1. target: runtime-rocm          ->  target: runtime-gpu
+#   2. delete the `args:` block under build
+#   3. image: fraud-detection:rocm   ->  image: fraud-detection:gpu
+#   4. replace the AMD GPU passthrough block with:
+#        deploy:
+#          resources:
+#            reservations:
+#              devices:
+#                - driver: nvidia
+#                  count: all
+#                  capabilities: [gpu]
+#
+# On ROCm, gfx1201 is not a target AMD supports for their XGBoost fork, so the
+# compile may fail or produce a binary the card rejects at train time. The app
+# probes for that and trains on CPU instead rather than failing — the container
+# logs say which path it took ("XGBoost GPU training available" vs. "no usable
+# GPU — training on CPU"). Set FRAUD_DETECTION_FORCE_CPU=1 in .env to skip the
+# GPU entirely without rebuilding.

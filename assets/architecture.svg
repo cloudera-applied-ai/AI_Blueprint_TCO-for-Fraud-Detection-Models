@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5f6b7a"/>
+    </marker>
+    <marker id="arrowO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f96702"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="540" fill="#fafbfc"/>
+  <text x="480" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#232f3e">Fraud Detection AI — Target Architecture on Cloudera</text>
+  <text x="480" y="47" text-anchor="middle" font-size="11" fill="#5f6b7a">Transactions stream in, an XGBoost model scores each one with SHAP reasons, and an analyst agent investigates and tunes the response</text>
+
+  <!-- Sources -->
+  <text x="84" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#5f6b7a" letter-spacing="1">SOURCES</text>
+  <rect x="24" y="112" width="120" height="48" rx="8" fill="#ffffff" stroke="#8aa2b8"/>
+  <text x="84" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Card / POS</text>
+  <text x="84" y="148" text-anchor="middle" font-size="10" fill="#5f6b7a">auth events</text>
+  <rect x="24" y="168" width="120" height="48" rx="8" fill="#ffffff" stroke="#8aa2b8"/>
+  <text x="84" y="188" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Payment gateways</text>
+  <text x="84" y="204" text-anchor="middle" font-size="10" fill="#5f6b7a">REST · Kafka</text>
+  <rect x="24" y="224" width="120" height="48" rx="8" fill="#ffffff" stroke="#8aa2b8"/>
+  <text x="84" y="244" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Core banking DBs</text>
+  <text x="84" y="260" text-anchor="middle" font-size="10" fill="#5f6b7a">CDC · JDBC</text>
+  <rect x="24" y="280" width="120" height="48" rx="8" fill="#ffffff" stroke="#8aa2b8"/>
+  <text x="84" y="300" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Reference files</text>
+  <text x="84" y="316" text-anchor="middle" font-size="10" fill="#5f6b7a">merchants · accounts</text>
+
+  <polyline points="144,136 152,136 152,304 144,304" fill="none" stroke="#5f6b7a" stroke-width="1.4"/>
+  <line x1="144" y1="192" x2="152" y2="192" stroke="#5f6b7a" stroke-width="1.4"/>
+  <line x1="144" y1="248" x2="152" y2="248" stroke="#5f6b7a" stroke-width="1.4"/>
+  <line x1="152" y1="149" x2="172" y2="149" stroke="#5f6b7a" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Platform container -->
+  <rect x="160" y="62" width="776" height="338" rx="14" fill="#ffffff" stroke="#f96702" stroke-width="2"/>
+  <text x="176" y="84" font-size="14" font-weight="700" fill="#f96702">Cloudera Data Platform — on-prem or public cloud (CPU or NVIDIA GPU)</text>
+
+  <!-- Data + model pipeline row -->
+  <text x="176" y="104" font-size="10" font-weight="700" fill="#5f6b7a" letter-spacing="1">DATA &amp; MODEL PIPELINE — INGEST, FEATURES, TRAINING</text>
+
+  <rect x="176" y="112" width="174" height="74" rx="8" fill="#eef3f8" stroke="#8aa2b8"/>
+  <text x="263" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#232f3e">Cloudera DataFlow · NiFi</text>
+  <text x="263" y="152" text-anchor="middle" font-size="10" fill="#5f6b7a">ingests transaction feeds</text>
+  <text x="263" y="168" text-anchor="middle" font-size="10" fill="#5f6b7a">Kafka · CDC · REST → land</text>
+
+  <rect x="366" y="112" width="174" height="74" rx="8" fill="#eef3f8" stroke="#8aa2b8"/>
+  <text x="453" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#232f3e">Open Data Lakehouse</text>
+  <text x="453" y="152" text-anchor="middle" font-size="10" fill="#5f6b7a">Apache Iceberg on Ozone / S3</text>
+  <text x="453" y="168" text-anchor="middle" font-size="10" fill="#5f6b7a">+ Operational DB key lookups</text>
+
+  <rect x="556" y="112" width="174" height="74" rx="8" fill="#eef3f8" stroke="#8aa2b8"/>
+  <text x="643" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#232f3e">Cloudera Data Engineering</text>
+  <text x="643" y="152" text-anchor="middle" font-size="10" fill="#5f6b7a">Spark + RAPIDS Accelerator</text>
+  <text x="643" y="168" text-anchor="middle" font-size="10" fill="#5f6b7a">velocity · risk-signal features</text>
+
+  <rect x="746" y="112" width="174" height="74" rx="8" fill="#eef3f8" stroke="#8aa2b8"/>
+  <text x="833" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#232f3e">CML Jobs · Model Registry</text>
+  <text x="833" y="152" text-anchor="middle" font-size="10" fill="#5f6b7a">train XGBoost + SHAP on GPU</text>
+  <text x="833" y="168" text-anchor="middle" font-size="10" fill="#5f6b7a">MLflow Experiments → promote</text>
+
+  <line x1="350" y1="149" x2="362" y2="149" stroke="#5f6b7a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="540" y1="149" x2="552" y2="149" stroke="#5f6b7a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="730" y1="149" x2="742" y2="149" stroke="#5f6b7a" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- AI row -->
+  <rect x="176" y="226" width="500" height="96" rx="10" fill="#fdf3ec" stroke="#e0b394" stroke-width="1.5"/>
+  <text x="190" y="246" font-size="12" font-weight="700" fill="#232f3e">Cloudera AI — Fraud Analyst App + ReAct Agent (Application)</text>
+
+  <rect x="188" y="258" width="112" height="52" rx="7" fill="#ffffff" stroke="#e0b394"/>
+  <text x="244" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Score · explain</text>
+  <text x="244" y="295" text-anchor="middle" font-size="10" fill="#5f6b7a">risk + SHAP reasons</text>
+  <rect x="310" y="258" width="112" height="52" rx="7" fill="#ffffff" stroke="#e0b394"/>
+  <text x="366" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Investigate</text>
+  <text x="366" y="295" text-anchor="middle" font-size="10" fill="#5f6b7a">merchant · network</text>
+  <rect x="432" y="258" width="112" height="52" rx="7" fill="#ffffff" stroke="#e0b394"/>
+  <text x="488" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Tune response</text>
+  <text x="488" y="295" text-anchor="middle" font-size="10" fill="#5f6b7a">threshold · cost</text>
+  <rect x="554" y="258" width="112" height="52" rx="7" fill="#ffffff" stroke="#e0b394"/>
+  <text x="610" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#232f3e">Retrain</text>
+  <text x="610" y="295" text-anchor="middle" font-size="10" fill="#5f6b7a">label corrections</text>
+
+  <line x1="300" y1="284" x2="308" y2="284" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="422" y1="284" x2="430" y2="284" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <line x1="544" y1="284" x2="552" y2="284" stroke="#5f6b7a" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <rect x="700" y="226" width="220" height="96" rx="10" fill="#eef3f8" stroke="#8aa2b8"/>
+  <text x="810" y="248" text-anchor="middle" font-size="12" font-weight="700" fill="#232f3e">Cloudera AI Inference</text>
+  <text x="810" y="266" text-anchor="middle" font-size="10" fill="#5f6b7a">NVIDIA NIM · auto-scaling REST</text>
+  <text x="810" y="282" text-anchor="middle" font-size="10" fill="#5f6b7a">XGBoost endpoint + agent LLM</text>
+  <text x="810" y="298" text-anchor="middle" font-size="10" fill="#5f6b7a">Model Monitoring: drift · latency</text>
+  <line x1="676" y1="274" x2="696" y2="274" stroke="#f96702" stroke-width="1.8" marker-end="url(#arrowO)"/>
+
+  <!-- Lakehouse → app, app → training, registry → inference -->
+  <line x1="420" y1="186" x2="420" y2="222" stroke="#5f6b7a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="432" y="209" font-size="10" fill="#5f6b7a">query transactions</text>
+  <polyline points="640,226 640,206 770,206 770,190" fill="none" stroke="#f96702" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrowO)"/>
+  <text x="652" y="198" font-size="10" fill="#f96702">retrain job</text>
+  <line x1="860" y1="186" x2="860" y2="222" stroke="#f96702" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrowO)"/>
+  <text x="872" y="209" font-size="10" fill="#f96702">deploy</text>
+
+  <!-- SDX -->
+  <rect x="176" y="346" width="744" height="40" rx="8" fill="#eef3f8" stroke="#8aa2b8"/>
+  <text x="548" y="370" text-anchor="middle" font-size="11" fill="#232f3e"><tspan font-weight="700">SDX</tspan> — Atlas: lineage · Ranger: fine-grained ACLs · Knox: perimeter · Data Catalog · audit</text>
+  <line x1="760" y1="322" x2="760" y2="342" stroke="#f96702" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrowO)"/>
+  <text x="772" y="337" font-size="10" fill="#f96702">promotions audited</text>
+
+  <!-- Consumers -->
+  <rect x="176" y="440" width="240" height="52" rx="10" fill="#fdf3ec" stroke="#f96702" stroke-width="1.5"/>
+  <text x="296" y="462" text-anchor="middle" font-size="14" font-weight="600" fill="#232f3e">Fraud analysts · risk teams</text>
+  <text x="296" y="480" text-anchor="middle" font-size="11" fill="#5f6b7a">triage alerts · ask the agent</text>
+  <line x1="296" y1="438" x2="296" y2="326" stroke="#f96702" stroke-width="1.8" marker-end="url(#arrowO)"/>
+
+  <!-- Footer -->
+  <rect x="440" y="440" width="496" height="52" rx="8" fill="#ffffff" stroke="#c3ccd6"/>
+  <text x="688" y="456" text-anchor="middle" font-size="11" fill="#5f6b7a">Demo today → Cloudera: generator → DataFlow · SQLite → Iceberg + COD</text>
+  <text x="688" y="471" text-anchor="middle" font-size="11" fill="#5f6b7a">pandas → CDE · train script → CML Jobs · agent → AI Studio</text>
+  <text x="688" y="486" text-anchor="middle" font-size="11" fill="#5f6b7a">Dashed orange = model lifecycle: retrain → register → deploy</text>
+</svg>

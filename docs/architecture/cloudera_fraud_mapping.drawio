@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-17T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram id="cloudera-mapping" name="Fraud Detection on Cloudera">
+    <mxGraphModel dx="1422" dy="920" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1360" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Fraud Detection — Application Components Mapped to Cloudera Services" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontColor=#1F2A44;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="15" width="1320" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="LEFT: what the demo runs locally today.     RIGHT: the equivalent production service on CDP." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#5D6D7E;" vertex="1" parent="1">
+          <mxGeometry x="20" y="47" width="1320" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Column headers -->
+        <mxCell id="ch1" value="DEMO COMPONENT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#455A64;strokeColor=#263238;fontColor=#FFFFFF;fontSize=13;fontStyle=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="360" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="ch2" value="CLOUDERA SERVICE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E65100;strokeColor=#BF360C;fontColor=#FFFFFF;fontSize=13;fontStyle=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="460" y="80" width="360" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="ch3" value="ROLE IN BLUEPRINT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;fontColor=#FFFFFF;fontSize=13;fontStyle=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="880" y="80" width="440" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 1 -->
+        <mxCell id="r1a" value="Synthetic Transaction&#10;Generator (Python)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="125" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1b" value="&lt;b&gt;Cloudera DataFlow (NiFi)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="125" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1c" value="Ingests transactions from any source — banks, POS,&#10;gateways — over 200+ connectors." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="125" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="150" as="sourcePoint"/>
+            <mxPoint x="460" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r1arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="150" as="sourcePoint"/>
+            <mxPoint x="880" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 2 -->
+        <mxCell id="r2a" value="SQLite (transactions.db)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="185" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2b" value="&lt;b&gt;Iceberg on Object Storage&#10;+ Cloudera Operational DB (HBase)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="185" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2c" value="Open lakehouse for analytics + low-latency key-value&#10;lookups during real-time scoring." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="185" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="210" as="sourcePoint"/>
+            <mxPoint x="460" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r2arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="210" as="sourcePoint"/>
+            <mxPoint x="880" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 3 -->
+        <mxCell id="r3a" value="Pandas / cuDF Pipeline&#10;(preprocess + features)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="245" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3b" value="&lt;b&gt;Cloudera Data Engineering (Spark)&#10;+ NVIDIA RAPIDS Accelerator&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="245" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3c" value="Scheduled batch feature engineering at scale with&#10;GPU acceleration via RAPIDS." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="245" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint"/>
+            <mxPoint x="460" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="270" as="sourcePoint"/>
+            <mxPoint x="880" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 4 -->
+        <mxCell id="r4a" value="XGBoost training script&#10;(local Python + GPU)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="305" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4b" value="&lt;b&gt;Cloudera AI (CML) Jobs&#10;+ Experiments (MLflow)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="305" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4c" value="Containerised, GPU-enabled training runs. Every run&#10;tracked, comparable, reproducible." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="305" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint"/>
+            <mxPoint x="460" y="330" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="330" as="sourcePoint"/>
+            <mxPoint x="880" y="330" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 5 -->
+        <mxCell id="r5a" value="Experiment Lab&#10;(retrain + label corrections)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="365" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5b" value="&lt;b&gt;CML Workspaces + Model Registry&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="365" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5c" value="Versioned models with one-click promote; corrections&#10;feed back as labelled training data." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="365" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="390" as="sourcePoint"/>
+            <mxPoint x="460" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="390" as="sourcePoint"/>
+            <mxPoint x="880" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 6 -->
+        <mxCell id="r6a" value="Model serving&#10;(in-process Python)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="425" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6b" value="&lt;b&gt;Cloudera AI Inference Service&#10;(NVIDIA NIM microservices)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="425" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6c" value="Auto-scaling REST endpoints with GPU acceleration&#10;and built-in observability." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="425" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="460" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r6arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="450" as="sourcePoint"/>
+            <mxPoint x="880" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 7 -->
+        <mxCell id="r7a" value="Ollama / CAII LLM&#10;(llama3.2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="485" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7b" value="&lt;b&gt;Cloudera AI Inference (NIM)&#10;Llama 3 / Mistral / private LLMs&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="485" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7c" value="Private LLM hosting — your data never leaves CDP.&#10;Same OpenAI-compatible API the demo already uses." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="485" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="510" as="sourcePoint"/>
+            <mxPoint x="460" y="510" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r7arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="510" as="sourcePoint"/>
+            <mxPoint x="880" y="510" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 8 -->
+        <mxCell id="r8a" value="ReAct agent&#10;(11 tools, 5-round loop)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="545" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r8b" value="&lt;b&gt;Cloudera AI Studio&#10;(agentic AI workflows)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="545" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r8c" value="Visual designer for tool-calling agents, guardrails,&#10;evaluation, and deployment." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="545" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r8arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="570" as="sourcePoint"/>
+            <mxPoint x="460" y="570" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r8arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="570" as="sourcePoint"/>
+            <mxPoint x="880" y="570" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 9 -->
+        <mxCell id="r9a" value="React 19 + FastAPI app&#10;(uvicorn + Vite)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="605" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r9b" value="&lt;b&gt;Cloudera AI (CML) Applications&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="605" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r9c" value="Long-running web apps with SSO, TLS, and&#10;project-scoped permissions out of the box." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="605" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r9arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="630" as="sourcePoint"/>
+            <mxPoint x="460" y="630" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r9arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="630" as="sourcePoint"/>
+            <mxPoint x="880" y="630" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Row 10 -->
+        <mxCell id="r10a" value="Drift monitor + threshold&#10;analysis tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#455A64;fontColor=#263238;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="665" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r10b" value="&lt;b&gt;CML Model Monitoring&#10;+ Cloudera Observability&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#BF360C;fontSize=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="665" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r10c" value="Continuous drift, latency, and cost telemetry piped&#10;to dashboards and alerting." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=11;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="880" y="665" width="440" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="r10arr" value="" style="endArrow=block;html=1;strokeColor=#37474F;strokeWidth=2;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="690" as="sourcePoint"/>
+            <mxPoint x="460" y="690" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r10arr2" value="" style="endArrow=none;html=1;strokeColor=#90A4AE;strokeWidth=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="690" as="sourcePoint"/>
+            <mxPoint x="880" y="690" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2F1;strokeColor=#00796B;strokeWidth=1;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="735" width="1280" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer-text" value="&lt;b&gt;Cross-cutting: Shared Data Experience (SDX)&lt;/b&gt; — Atlas (lineage), Ranger (fine-grained ACLs),&#10;Knox (perimeter gateway), Data Catalog — secures &amp; governs every row above." style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#00695C;" vertex="1" parent="1">
+          <mxGeometry x="40" y="735" width="1280" height="55" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

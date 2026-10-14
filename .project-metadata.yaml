@@ -1,0 +1,110 @@
+name: Fraud Detection AI
+description: >-
+  Full-stack fraud detection application with an XGBoost ML model, SHAP
+  explainability, React dashboard, FastAPI backend, and a ReAct-style AI
+  agent for natural language fraud analysis. Supports optional GPU
+  acceleration via NVIDIA RAPIDS.
+author: Michael Schuler
+specification_version: 1.0
+prototype_version: 1.0
+date: "2026-04-06"
+
+environment_variables:
+  FRAUD_DETECTION_FORCE_CPU:
+    default: "0"
+    description: "Set to 1 to force CPU mode even if GPU is available"
+    required: false
+  BACKEND_PORT:
+    default: "7078"
+    description: "Localhost port the co-located backend binds to inside the app"
+    required: false
+
+runtimes:
+  - editor: JupyterLab
+    kernel: Python 3.11
+    edition: Standard
+
+tasks:
+  - type: run_session
+    name: Install Dependencies
+    script: deploy/install.py
+    kernel: python3
+    short_summary: Install Python packages, Node.js, and build the React frontend
+    long_summary: >-
+      Validates system resources, creates data and model directories, installs
+      Python dependencies from requirements.txt, auto-detects GPU and installs
+      RAPIDS packages if available, ensures Node.js is available, and builds
+      the production React frontend bundle.
+    cpu: 4
+    memory: 8
+    gpu: 1
+
+  - type: run_session
+    name: Generate Synthetic Data
+    script: pipelines/data_generation/generate_synthetic_data.py
+    kernel: python3
+    short_summary: Generate 200K synthetic transactions with fraud patterns
+    long_summary: >-
+      Creates synthetic users, merchants, and transactions across 31 countries
+      with realistic fraud patterns including cross-border, high-velocity,
+      and unusual-amount scenarios.
+    cpu: 4
+    memory: 8
+    gpu: 1
+
+  - type: run_session
+    name: Preprocess Data
+    script: pipelines/data_pipeline/preprocess.py
+    kernel: python3
+    short_summary: Clean and preprocess raw transaction data
+    long_summary: >-
+      Reads raw generated data, applies cleaning and type conversions, and
+      writes preprocessed Parquet files for feature engineering.
+    cpu: 4
+    memory: 8
+    gpu: 1
+
+  - type: run_session
+    name: Feature Engineering
+    script: pipelines/data_pipeline/feature_engineering.py
+    kernel: python3
+    short_summary: Generate ML features from preprocessed data
+    long_summary: >-
+      Computes velocity features, cross-border indicators, country fraud rates,
+      and other engineered features. Outputs processed Parquet and populates
+      the SQLite database.
+    cpu: 4
+    memory: 8
+    gpu: 1
+
+  - type: run_session
+    name: Train Model
+    script: pipelines/model_training/train_xgboost.py
+    kernel: python3
+    short_summary: Train XGBoost fraud detection model
+    long_summary: >-
+      Trains an XGBoost classifier with QuantileDMatrix for memory efficiency.
+      Saves the model as xgboost_fraud.json for serving.
+    cpu: 4
+    memory: 8
+    gpu: 1
+
+  - type: start_application
+    name: Fraud Detection AI
+    subdomain: fraud-app
+    script: app/start_frontend.py
+    kernel: python3
+    short_summary: Launch the fraud detection dashboard and API in one app
+    long_summary: >-
+      Serves the production React frontend and runs the FastAPI backend in the
+      same application. The backend binds to localhost:7078 and the frontend
+      reverse-proxies /api requests to it, so both services run inside a single
+      CML application with no cross-app networking. Binds to CDSW_APP_PORT.
+    cpu: 4
+    memory: 8
+    gpu: 1
+    environment_variables:
+      TASK_TYPE: START_APPLICATION
+      BACKEND_PORT:
+        default: "7078"
+        description: "Localhost port the co-located backend binds to"

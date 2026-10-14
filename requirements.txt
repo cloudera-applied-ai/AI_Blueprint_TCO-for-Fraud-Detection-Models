@@ -1,0 +1,16 @@
+pandas>=2.0.0
+pyarrow>=14.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+faker>=20.0.0
+pyyaml>=6.0
+openai>=1.10.0
+fastapi>=0.109.0
+uvicorn>=0.27.0
+orjson>=3.9.0
+httpx>=0.26.0
+
+# GPU acceleration (optional) - requires NVIDIA GPU + CUDA 12.x
+# Install with: pip install --extra-index-url https://pypi.nvidia.com -r requirements-gpu.txt
+# Or set FRAUD_DETECTION_FORCE_CPU=1 to disable GPU even if RAPIDS is installed

@@ -1,0 +1,54 @@
+# Cloudera Blueprint catalog metadata
+# Populate fields used by the master blueprint website and internal catalog.
+
+# --- Identity ---
+name: "TCO for Fraud Detection Models"
+slug: "tco-fraud-detection-models"                    # URL-safe repo / catalog identifier
+description: "Full-stack fraud detection application with an XGBoost ML model, SHAP explainability, a React risk dashboard, FastAPI backend, and a ReAct-style AI agent for natural language fraud analysis."
+reprise_link: ""                              # TODO: no Reprise demo recorded yet
+
+# --- Classification (website filters) ---
+catalog_classification:
+  - Launchable (AMP)                          # Options: Enterprise Blueprint | Research | Launchable (AMP) | Developer Example
+launchable: true                              # true | false
+lifecycle_status: Active                      # e.g., Active | Deprecated
+
+# --- Industry & alignment ---
+industry: Financial Services                  # e.g., General | Telecom | Financial Services | Healthcare & Life Sciences | Retail | Media | Physical AI & Robotics
+industry_alignment: "Vertical"                # Horizontal | Vertical
+target_vertical: "Fraud & Risk"               # Optional finer-grained vertical
+
+# --- Tags (website search & browse) ---
+tags:
+  - fraud-detection
+  - machine-learning
+  - xgboost
+  - shap
+  - explainability
+  - agents
+  - dashboard
+  - financial-services
+  - gpu
+  - rapids
+
+# --- Relationships ---
+product_mapping:                              # Cloudera products used
+  - Cloudera Machine Learning
+  - Cloudera AI Inference Service
+#model_dependencies:                          # No fixed model dependency — LLM_PROVIDER is pluggable (CAII / vLLM / Ollama) per deploy/README.md
+
+# --- Provenance ---
+publisher: cloudera                           # cloudera | partner-name
+source: Internal                              # Internal | Partner | NVIDIA Adaptation | Customer
+
+# --- Repository & assets ---
+public_github_link: "https://github.com/cloudera-applied-ai/AI_Blueprint_TCO-for-Fraud-Detection-Models"
+#private_github_link: ""                      # If applicable, original repo during development
+
+# --- Ownership ---
+maintainer_name: "Michael Schuler"
+
+# --- Dates ---
+date_created: "2026-04-06"
+date_updated: "2026-09-15"
+published_date: "2026-08-03"                  # Published date / last modified
