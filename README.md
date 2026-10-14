@@ -1,15 +1,14 @@
 # Cloudera Blueprint: TCO for Fraud Detection Models
 
+[![Author-Michael Schuler](https://img.shields.io/badge/Author-Michael%20Schuler-555555)](https://github.com/thesneakernet01)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)
 ![Cloudera Blueprint](https://img.shields.io/badge/Cloudera-Blueprint-f96702.svg)
-[![Author-Michael Schuler](https://img.shields.io/badge/Author-Michael%20Schuler-555555)]()
+
 ![Stars](https://img.shields.io/github/stars/cloudera-applied-ai/AI_Blueprint_TCO-for-Fraud-Detection-Models?logo=github&cacheSeconds=300)
 ![Forks](https://img.shields.io/github/forks/cloudera-applied-ai/AI_Blueprint_TCO-for-Fraud-Detection-Models?logo=github&cacheSeconds=300)
 
 > End-to-end **fraud analytics** on Cloudera: synthetic transactions, **XGBoost** scoring with **SHAP** explainability, a React risk dashboard, and a **ReAct** agent over **Cloudera AI Inference** — deployable as a single **CML AMP**, with optional **RAPIDS** GPU acceleration and a target lakehouse architecture for production TCO conversations.
-
-
 
 ## Table of Contents
 
@@ -25,8 +24,6 @@
 - [Hardware Requirements](#hardware-requirements)
 - [Documentation](#documentation)
 - [License](#license)
-
-
 
 ## Overview
 
@@ -51,8 +48,6 @@ Fraud teams need a fast, explainable way to separate legitimate transactions fro
 - ReAct-style AI agent for natural-language fraud analysis, with a pluggable LLM provider (Cloudera AI Inference Service, vLLM, or Ollama) and live token-cost counter.
 - Optional NVIDIA RAPIDS GPU acceleration, auto-detected and gracefully falling back to CPU (`FRAUD_DETECTION_FORCE_CPU=1` to force CPU mode).
 
-
-
 ## Quickstart / Guide
 
 1. Clone the repository.
@@ -60,8 +55,6 @@ Fraud teams need a fast, explainable way to separate legitimate transactions fro
 3. Configure an LLM provider for the agent (Cloudera AI Inference, vLLM, or Ollama) via `config/config.yaml` / a local `.env` — see `[deploy/README.md](deploy/README.md)`.
 4. Local/Docker alternative: `docker compose up -d --build` runs the same app outside CML (the LLM endpoint stays remote).
 5. Full build/run detail — feature tour, pipeline walkthrough, GPU setup, API reference — is in `[docs/APP_GUIDE.md](docs/APP_GUIDE.md)`.
-
-
 
 ## Architecture / Software Components
 
@@ -86,10 +79,7 @@ Fraud teams need a fast, explainable way to separate legitimate transactions fro
 - AI engineers building ReAct-style natural-language agents over a live model-serving API
 - Sales engineers and field teams running a financial-services fraud-detection demo
 
-
-
 ## Repository Structure
-
 
 | Path                                | Description                                                                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -108,27 +98,18 @@ Fraud teams need a fast, explainable way to separate legitimate transactions fro
 | `.project-metadata.yaml`            | CML AMP manifest — the task chain and the dashboard Application                                                           |
 | `Dockerfile` / `docker-compose.yml` | The local/on-prem container path (same app, remote LLM endpoint)                                                          |
 
-
-
-
 ## Prerequisites
 
 - A Cloudera Machine Learning (CML) workspace to host the AMP, or Docker for the local/on-prem path
 - An LLM endpoint for the agent: Cloudera AI Inference Service, a vLLM endpoint, or a local Ollama instance
 - For local validation: Python 3.11, Node.js (installed automatically by `deploy/install.py` if absent)
 
-
-
 ## Hardware Requirements
-
 
 | Deployment              | Minimum                                                                                                                                                    |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Launchable / demo       | AMP task sessions run at 2 vCPU / 4–8 GB RAM / optional 1 GPU (per `.project-metadata.yaml`); GPU is auto-detected and optional everywhere (NVIDIA RAPIDS) |
 | Production / enterprise | TODO — not sized beyond the AMP task profile; scales with transaction volume and training cadence                                                          |
-
-
-
 
 ## Documentation
 
@@ -138,8 +119,6 @@ Fraud teams need a fast, explainable way to separate legitimate transactions fro
 - `[app/README.md](app/README.md)` — the application layer (backend + frontend)
 - `[pipelines/README.md](pipelines/README.md)` — the AMP task chain, in order
 - `[workshop/](workshop/)` — facilitator guide and four-module presentation track
-
-
 
 ## License
 
