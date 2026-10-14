@@ -3,6 +3,7 @@
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)
 ![Cloudera Blueprint](https://img.shields.io/badge/Cloudera-Blueprint-f96702.svg)
+[![Author-Michael Schuler](https://img.shields.io/badge/Author-Michael%20Schuler-555555)]()
 ![Stars](https://img.shields.io/github/stars/cloudera-applied-ai/AI_Blueprint_TCO-for-Fraud-Detection-Models?logo=github&cacheSeconds=300)
 ![Forks](https://img.shields.io/github/forks/cloudera-applied-ai/AI_Blueprint_TCO-for-Fraud-Detection-Models?logo=github&cacheSeconds=300)
 
